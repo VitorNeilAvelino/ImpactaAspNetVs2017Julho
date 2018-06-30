@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{75F973FB-F637-42AC-8E4A-E1BC8402A47C}</ProjectGuid>
+    <ProjectGuid>{17D8992B-7688-429D-BABC-CCAACD348F4A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>AspNetVs2017.Capitulo01.Variaveis</RootNamespace>
-    <AssemblyName>AspNetVs2017.Capitulo01.Variaveis</AssemblyName>
+    <RootNamespace>AspNetVS2017.Capitulo01.Tabuada</RootNamespace>
+    <AssemblyName>AspNetVS2017.Capitulo01.Tabuada</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,11 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="VariaveisForm.cs">
+    <Compile Include="TabuadaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VariaveisForm.Designer.cs">
-      <DependentUpon>VariaveisForm.cs</DependentUpon>
+    <Compile Include="TabuadaForm.Designer.cs">
+      <DependentUpon>TabuadaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,8 +62,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="VariaveisForm.resx">
-      <DependentUpon>VariaveisForm.cs</DependentUpon>
+    <EmbeddedResource Include="TabuadaForm.resx">
+      <DependentUpon>TabuadaForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

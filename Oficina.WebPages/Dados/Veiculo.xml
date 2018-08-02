@@ -60,4 +60,24 @@
     <Combustivel>Gasolina</Combustivel>
     <Cambio>Manual</Cambio>
   </Veiculo>
+  <Veiculo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Id>cb98e077-f1dd-44b7-8e88-acfafbc182cb</Id>
+    <Placa>asdf</Placa>
+    <Ano>2014</Ano>
+    <Observacao>asdf</Observacao>
+    <Modelo>
+      <Id>1</Id>
+      <Nome>Palio</Nome>
+      <Marca>
+        <Id>1</Id>
+        <Nome>Fiat</Nome>
+      </Marca>
+    </Modelo>
+    <Cor>
+      <Id>1</Id>
+      <Nome>Preto</Nome>
+    </Cor>
+    <Combustivel>Gasolina</Combustivel>
+    <Cambio>Manual</Cambio>
+  </Veiculo>
 </veiculos>

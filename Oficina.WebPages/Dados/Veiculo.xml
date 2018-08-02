@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<veiculos>
+  <Veiculo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Id>e3b11a5b-eb39-4881-a104-b19533f33c4c</Id>
+    <Placa>abc1234</Placa>
+    <Ano>2014</Ano>
+    <Observacao>obse</Observacao>
+    <Modelo>
+      <Id>1</Id>
+      <Nome>Palio</Nome>
+      <Marca>
+        <Id>1</Id>
+        <Nome>Fiat</Nome>
+      </Marca>
+    </Modelo>
+    <Cor>
+      <Id>1</Id>
+      <Nome>Preto</Nome>
+    </Cor>
+    <Combustivel>Gasolina</Combustivel>
+    <Cambio>Manual</Cambio>
+  </Veiculo>
+  <Veiculo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Id>1fe51e74-87b8-40be-9e0c-011cbf3eab01</Id>
+    <Placa>abc1234</Placa>
+    <Ano>2014</Ano>
+    <Observacao>obser</Observacao>
+    <Modelo>
+      <Id>3</Id>
+      <Nome>Fiesta</Nome>
+      <Marca>
+        <Id>2</Id>
+        <Nome>Ford</Nome>
+      </Marca>
+    </Modelo>
+    <Cor>
+      <Id>1</Id>
+      <Nome>Preto</Nome>
+    </Cor>
+    <Combustivel>Gasolina</Combustivel>
+    <Cambio>Manual</Cambio>
+  </Veiculo>
+  <Veiculo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Id>68052951-687e-4eb2-ace8-5c941d1ce502</Id>
+    <Placa>abc1234</Placa>
+    <Ano>2014</Ano>
+    <Observacao>obijd</Observacao>
+    <Modelo>
+      <Id>1</Id>
+      <Nome>Palio</Nome>
+      <Marca>
+        <Id>1</Id>
+        <Nome>Fiat</Nome>
+      </Marca>
+    </Modelo>
+    <Cor>
+      <Id>1</Id>
+      <Nome>Preto</Nome>
+    </Cor>
+    <Combustivel>Gasolina</Combustivel>
+    <Cambio>Manual</Cambio>
+  </Veiculo>
+</veiculos>

@@ -16,7 +16,7 @@ namespace Oficina.WebPages
 
         public List<Marca> Marcas { get; set; }
         public string MarcaSelecionada { get; set; }
-        public List<Modelo> Modelos { get; set; }
+        public List<Modelo> Modelos { get; set; } = new List<Modelo>();
         public List<Cor> Cores { get; set; }
         public List<Combustivel> Combustiveis { get; set; }
         public List<Cambio> Cambios { get; set; }
@@ -29,6 +29,12 @@ namespace Oficina.WebPages
         private void PopularControles()
         {
             Marcas = _marcaRepositorio.Selecionar();
+            MarcaSelecionada = HttpContext.Current.Request.QueryString["marcaId"];
+
+            if (!string.IsNullOrEmpty(MarcaSelecionada))
+            {
+                Modelos = _modeloRepositorio.SelecionarPorMarca(Convert.ToInt32(MarcaSelecionada));
+            }
 
             Cores = _corRepositorio.Selecionar();
 
@@ -38,6 +44,22 @@ namespace Oficina.WebPages
             Cambios = Enum.GetValues(typeof(Cambio))
                 .Cast<Cambio>().ToList();
 
+        }
+
+        public void Inserir()
+        {
+            var veiculo = new Veiculo();
+            var formulario = HttpContext.Current.Request.Form;
+
+            veiculo.Ano = Convert.ToInt32(formulario["ano"]);
+            veiculo.Cambio = (Cambio)Convert.ToInt32(formulario["cambio"]);
+            veiculo.Combustivel = (Combustivel)Convert.ToInt32(formulario["combustivel"]);
+            veiculo.Cor = _corRepositorio.Selecionar(Convert.ToInt32(formulario["cor"]));
+            veiculo.Modelo = _modeloRepositorio.Selecionar(Convert.ToInt32(formulario["modelo"]));
+            veiculo.Observacao = formulario["observacao"];
+            veiculo.Placa = formulario["placa"]/*.ToUpper()*/;
+
+            _veiculoRepositorio.Inserir(veiculo);
         }
     }
 }

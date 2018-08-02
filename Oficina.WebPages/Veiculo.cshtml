@@ -1,4 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@using Oficina.WebPages;
+@{
+    var _aplicacao = new VeiculoAplicacao();
+
+    if (IsPost)
+    {
+        _aplicacao.Inserir();
+        Response.Redirect("Veiculo");
+    }
+}
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -8,8 +18,78 @@
 <body>
     <h1>Cadastro de veículos</h1>
     <hr />
-    <form>
+    <form method="post">
+        <label for="marca">Marca</label>
+        <select name="marca" onchange="obterModelos(this.value)">
+            <option>Selecione</option>
+            @foreach (var marca in _aplicacao.Marcas)
+            {
+                <option value="@marca.Id" selected="@Convert.ToBoolean(marca.Id.ToString() == _aplicacao.MarcaSelecionada)">@marca.Nome</option>
+            }
+        </select>
+        <br />
 
+        <label for="modelo">Modelo</label>
+        <select name="modelo">
+            <option>Selecione</option>
+            @foreach (var modelo in _aplicacao.Modelos)
+            {
+                <option value="@modelo.Id">@modelo.Nome</option>
+            }
+        </select>
+        <br />
+
+        <label for="placa">Placa</label>
+        <input type="text" name="placa" id="placa" />
+        <br />
+
+        <label for="ano">Ano</label>
+        <input type="text" name="ano" id="ano" />
+        <br />
+
+        <label for="cor">Cor</label>
+        <select name="cor" id="cor">
+            <option>Selecione</option>
+            @foreach (var cor in _aplicacao.Cores)
+            {
+                <option value="@cor.Id">@cor.Nome</option>
+            }
+        </select>
+        <br />
+
+        <label for="combustivel">Combustível</label>
+        <select name="combustivel" id="combustivel">
+            <option>Selecione</option>
+            @foreach (var combustivel in _aplicacao.Combustiveis)
+            {
+                <option value="@((int)combustivel)">@combustivel</option>
+            }
+        </select>
+        <br />
+
+        <label for="cambio">Câmbio</label>
+        <select name="cambio" id="cambio">
+            <option>Selecione</option>
+            @foreach (var cambio in _aplicacao.Cambios)
+            {
+                <option value="@((int)cambio)">@cambio</option>
+            }
+        </select>
+        <br />
+
+        <label for="observacao">Observação</label>
+        <br />
+        <textarea name="observacao" id="observacao" rows="10" cols="40"></textarea>
+        <br />
+
+        <input type="submit" value="Gravar" />
     </form>
+
+    <script type="text/javascript">
+        function obterModelos(marcaId) {
+            const nomePagina = document.location.pathname;
+            document.location.href = nomePagina + "?marcaId=" + marcaId;
+        }
+    </script>
 </body>
 </html>

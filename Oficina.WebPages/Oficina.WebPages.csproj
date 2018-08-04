@@ -88,6 +88,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Dados\Cor.txt" />
+    <Content Include="Dados\Marca.txt" />
+    <Content Include="Dados\Modelo.xml" />
+    <Content Include="Dados\Veiculo.xml" />
     <Content Include="Veiculo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -97,7 +101,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

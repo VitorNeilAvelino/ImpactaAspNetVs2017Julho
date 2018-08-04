@@ -18,7 +18,10 @@ namespace Oficina.Repositorios.SistemaDeArquivos
 
         public VeiculoRepositorio()
         {
-            _caminhoArquivo = ConfigurationManager.AppSettings["caminhoArquivoVeiculo"];
+            _caminhoArquivo = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory, 
+                ConfigurationManager.AppSettings["caminhoArquivoVeiculo"]);
+
             _arquivoXml = XDocument.Load(_caminhoArquivo);
         }
 

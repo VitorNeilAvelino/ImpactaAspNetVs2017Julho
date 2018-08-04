@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Oficina.Dominio
 {
-    public class Veiculo
+    // abstract - não pode ser instanciada (new).
+    public abstract class Veiculo
     {
         //public Veiculo()
         //{
@@ -10,7 +12,29 @@ namespace Oficina.Dominio
         //}
 
         public Guid Id { get; set; } = Guid.NewGuid();
-        public string Placa { get; set; }
+
+        private string _placa;
+        //ToDo: OO - encapsulamento.
+        public string Placa
+        {
+            get { return _placa.ToUpper(); }
+            set { _placa = value.ToUpper(); }
+        }
+
+        //private string _placa;
+
+        //public string Placa
+        //{
+        //    get
+        //    {
+        //        return _placa.ToUpper();
+        //    }
+        //    set
+        //    {
+        //        _placa = value.ToUpper();
+        //    }
+        //}
+
         public int Ano { get; set; }
         public string Observacao { get; set; }
 
@@ -19,5 +43,19 @@ namespace Oficina.Dominio
 
         public Combustivel Combustivel { get; set; }
         public Cambio Cambio { get; set; }
+
+        public abstract List<string> Validar();
+
+        protected List<string> ValidarBase()
+        {
+            var erros = new List<string>();
+
+            if (Ano <= 1940 || (Ano - DateTime.Now.Year >= 2))
+            {
+                erros.Add($"O ano informado {Ano} é inválido.");
+            }
+
+            return erros;
+        }
     }
 }

@@ -45,7 +45,6 @@ namespace Oficina.WebPages
 
             Cambios = Enum.GetValues(typeof(Cambio))
                 .Cast<Cambio>().ToList();
-
         }
 
         public void Inserir()
@@ -81,12 +80,13 @@ namespace Oficina.WebPages
                 HttpContext.Current.Items.Add
                     ("MensagemErro", "Caminho não encontrado.");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 HttpContext.Current.Items.Add
                     ("MensagemErro", "Oooops! Ocorreu um erro.");
 
-                //throw;
+                //logar o erro:
+                throw;
             }
         }
     }

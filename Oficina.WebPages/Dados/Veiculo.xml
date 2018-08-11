@@ -120,4 +120,46 @@
     <Combustivel>Gasolina</Combustivel>
     <Cambio>Manual</Cambio>
   </Veiculo>
+  <VeiculoPasseio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Id>af4b458c-58e3-474d-82b7-1b4bfad4b816</Id>
+    <Placa>ABC1234</Placa>
+    <Ano>2014</Ano>
+    <Observacao>11/08</Observacao>
+    <Modelo>
+      <Id>3</Id>
+      <Nome>Focus</Nome>
+      <Marca>
+        <Id>2</Id>
+        <Nome>Ford</Nome>
+      </Marca>
+    </Modelo>
+    <Cor>
+      <Id>2</Id>
+      <Nome>Amarelo</Nome>
+    </Cor>
+    <Combustivel>Gasolina</Combustivel>
+    <Cambio>Automatizado</Cambio>
+    <Carroceria>Suv</Carroceria>
+  </VeiculoPasseio>
+  <VeiculoPasseio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Id>10e98666-d622-4245-8d81-ef4f4bad24e8</Id>
+    <Placa>DFSADF</Placa>
+    <Ano>2018</Ano>
+    <Observacao>11:59</Observacao>
+    <Modelo>
+      <Id>3</Id>
+      <Nome>Focus</Nome>
+      <Marca>
+        <Id>2</Id>
+        <Nome>Ford</Nome>
+      </Marca>
+    </Modelo>
+    <Cor>
+      <Id>2</Id>
+      <Nome>Amarelo</Nome>
+    </Cor>
+    <Combustivel>Alcool</Combustivel>
+    <Cambio>Automatico</Cambio>
+    <Carroceria>Suv</Carroceria>
+  </VeiculoPasseio>
 </veiculos>

@@ -21,6 +21,7 @@ namespace ViagensOnline.Mvc.Models
         [Required]
         public string Cidade { get; set; }
 
+        [Display(Name = "Imagem")]
         public string CaminhoImagem { get; set; }
 
         [Display(Name = "Foto")]

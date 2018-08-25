@@ -14,12 +14,13 @@ using ViagensOnline.Repositorios.SqlServer;
 
 namespace ViagensOnline.Mvc.Areas.Admin.Controllers
 {
+    [Authorize]
     public class DestinosController : Controller
     {
         private ViagensOnlineDbContext db = new ViagensOnlineDbContext();
         private string _caminhoImagensDestinos = ConfigurationManager.AppSettings["caminhoImagensDestinos"];
 
-        // GET: Admin/Destinos
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(Mapear(db.Destinos.ToList()));
@@ -51,7 +52,7 @@ namespace ViagensOnline.Mvc.Areas.Admin.Controllers
             return viewModel;
         }
 
-        // GET: Admin/Destinos/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -63,7 +64,7 @@ namespace ViagensOnline.Mvc.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(destino);
+            return View(Mapear(destino));
         }
 
         // GET: Admin/Destinos/Create
@@ -127,7 +128,7 @@ namespace ViagensOnline.Mvc.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(destino);
+            return View(Mapear(destino));
         }
 
         // POST: Admin/Destinos/Edit/5
@@ -135,18 +136,29 @@ namespace ViagensOnline.Mvc.Areas.Admin.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Pais,Cidade,NomeImagem")] Destino destino)
+        public ActionResult Edit(DestinoViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(destino).State = EntityState.Modified;
+                var destino = db.Destinos.Find(viewModel.Id);
+
+                db.Entry(destino).CurrentValues.SetValues(viewModel);
+                //db.Entry(destino).State = EntityState.Modified;
+
+                if (viewModel.ArquivoFoto != null)
+                {
+                    SalvarFoto(viewModel.ArquivoFoto);
+                    destino.NomeImagem = viewModel.ArquivoFoto.FileName;
+                }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(destino);
+            return View(viewModel);
         }
 
-        // GET: Admin/Destinos/Delete/5
+        [Authorize(Roles = "MegaMaster")]
+        [Authorize(Roles = "Master, Gerente")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -158,10 +170,11 @@ namespace ViagensOnline.Mvc.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(destino);
+            return View(Mapear(destino));
         }
 
-        // POST: Admin/Destinos/Delete/5
+        [Authorize(Roles = "MegaMaster")]
+        [Authorize(Roles = "Master, Gerente")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -169,6 +182,10 @@ namespace ViagensOnline.Mvc.Areas.Admin.Controllers
             Destino destino = db.Destinos.Find(id);
             db.Destinos.Remove(destino);
             db.SaveChanges();
+
+            System.IO.File.Delete(
+                Server.MapPath(Path.Combine(_caminhoImagensDestinos, destino.NomeImagem)));
+
             return RedirectToAction("Index");
         }
 

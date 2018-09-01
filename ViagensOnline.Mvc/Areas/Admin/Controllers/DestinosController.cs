@@ -88,7 +88,7 @@ namespace ViagensOnline.Mvc.Areas.Admin.Controllers
 
                 db.Destinos.Add(destino);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
 
             return View(viewModel);

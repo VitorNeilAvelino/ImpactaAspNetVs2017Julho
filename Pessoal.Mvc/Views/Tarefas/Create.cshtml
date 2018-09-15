@@ -29,18 +29,23 @@
             </div>
             <div class="form-group">
                 <label asp-for="Prioridade" class="control-label"></label>
-                <select asp-for="Prioridade" class="form-control">
-                    <option value="-1">Selecione</option>
+                <div class="col-md-10">
+                    <select asp-for="Prioridade" class="form-control d-inline">
+                        <option value="-1">Selecione</option>
+                        @foreach (var prioridade in Enum.GetValues(typeof(Prioridade)))
+                        {
+                            <option value="((int)@prioridade)">@prioridade</option>
+                        }
+                    </select>
 
-                    @foreach (var prioridade in Enum.GetValues(typeof(Prioridade)))
-                    {
-                        <option value="((int)@prioridade)">@prioridade</option>
+                    <button type="button" id="pesquisarButton" data-toggle="popover"
+                            class="btn btn-default">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
 
-                    }
-
-                </select>
-                @*<input asp-for="Prioridade" class="form-control" />*@
-                <span asp-validation-for="Prioridade" class="text-danger"></span>
+                    @*<input asp-for="Prioridade" class="form-control" />*@
+                    <span asp-validation-for="Prioridade" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
                 <div class="checkbox">
@@ -68,4 +73,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @*<script type="text/javascript" src="~/js/tarefas/create.js"></script>*@
 }

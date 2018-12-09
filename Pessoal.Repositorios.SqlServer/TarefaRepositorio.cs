@@ -4,10 +4,11 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System;
+using Pessoal.Dominio.Interfaces;
 
 namespace Pessoal.Repositorios.SqlServer
 {
-    public class TarefaRepositorio
+    public class TarefaRepositorio : ITarefaRepositorio
     {
         private string stringConexao;
 

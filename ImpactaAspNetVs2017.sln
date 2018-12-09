@@ -67,6 +67,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViagensOnline.Repositorios.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViagensOnline.Repositorios.MySqlTests", "ViagensOnline.Repositorios.MySqlTests\ViagensOnline.Repositorios.MySqlTests.csproj", "{D021993C-572B-4E65-9D96-C359149E38F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pessoal.WebForms", "Pessoal.WebForms\Pessoal.WebForms.csproj", "{E8CD6C0B-E475-4E20-B295-988A93FA77EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -181,6 +183,10 @@ Global
 		{D021993C-572B-4E65-9D96-C359149E38F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D021993C-572B-4E65-9D96-C359149E38F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D021993C-572B-4E65-9D96-C359149E38F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8CD6C0B-E475-4E20-B295-988A93FA77EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8CD6C0B-E475-4E20-B295-988A93FA77EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8CD6C0B-E475-4E20-B295-988A93FA77EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8CD6C0B-E475-4E20-B295-988A93FA77EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -204,6 +210,7 @@ Global
 		{7057353B-CE23-484A-8F06-EE9B4BAD17AF} = {8B954413-7517-4890-9E99-D13D1303CE32}
 		{F5274D02-AE20-4F95-8E1F-239773BB8E5C} = {A387DB87-7255-4F6C-B9C8-001DF22A7DF0}
 		{D021993C-572B-4E65-9D96-C359149E38F5} = {A387DB87-7255-4F6C-B9C8-001DF22A7DF0}
+		{E8CD6C0B-E475-4E20-B295-988A93FA77EB} = {892C913E-5257-4708-8A7E-FACACBA8A4B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35C93FF7-E78A-446A-9EC9-52C8F89B3511}
